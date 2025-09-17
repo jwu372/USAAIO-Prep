@@ -1,0 +1,21 @@
+{
+    "editor.quickSuggestions": {
+        "comments": true,
+        "strings": true,
+        "other": true
+    },
+    "editor.suggestOnTriggerCharacters": true,
+    "editor.inlineSuggest.enabled": true,
+    "editor.tabCompletion": "on",
+    "editor.acceptSuggestionOnTab": "on",
+    "editor.acceptSuggestionOnEnter": "on",
+    "github.copilot.enable": {
+        "*": true
+    },
+    "editor.fontSize": 11,
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#4C1455",
+        "titleBar.activeBackground": "#6A1D77",
+        "titleBar.activeForeground": "#FEFCFE"
+    }
+}
