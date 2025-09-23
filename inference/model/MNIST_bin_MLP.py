@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn, torch.nn.functional as F
 
-class BinPerceptron(nn.Module):
+class BinMLP(nn.Module):
     def __init__(self, in_dim=784, hidden_dim=128, out_dim=1, device='cuda' if torch.cuda.is_available() else 'cpu'):
         super().__init__()
         self.W1 = nn.Parameter(torch.randn(in_dim, hidden_dim, device=device))
@@ -15,9 +15,9 @@ class BinPerceptron(nn.Module):
         X4 = X3 @ self.W2 + self.B2
         return torch.sigmoid(X4)
     
-def load_BinPerceptron(checkpoint_path, device='cuda' if torch.cuda.is_available() else 'cpu'):
+def load_BinMLP(checkpoint_path, device='cuda' if torch.cuda.is_available() else 'cpu'):
     checkpoint = torch.load(checkpoint_path, map_location=device)
-    model = BinPerceptron()
+    model = BinMLP()
     model.load_state_dict(checkpoint)
     model.to(device)
     model.eval()
