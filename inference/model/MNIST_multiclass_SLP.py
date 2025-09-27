@@ -8,7 +8,7 @@ class MulticlassSLP(nn.Module):
         self.bias = nn.Parameter(torch.randn(num_classes, device=device, requires_grad=True))
     
     def forward(self, X):
-        return X @ self.weight + self.bias
+        return torch.argmax(X @ self.weight + self.bias, dim=1)
 
 def load_MulticlassSLP(checkpoint_path, device='cuda' if torch.cuda.is_available() else 'cpu'):
     checkpoint = torch.load(checkpoint_path, map_location=device)
