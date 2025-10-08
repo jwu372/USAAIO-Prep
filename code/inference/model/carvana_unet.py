@@ -62,10 +62,15 @@ class UNet(nn.Module):
         x = self.up2(x, skip3)
         x = self.up3(x, skip2)
         x = self.up4(x, skip1)
-        return torch.sigmoid(self.final_conv(x))
+        return self.final_conv(x)
 
 def load_UNet(checkpoint_path, device):
     model = UNet(in_ch=3, out_ch=1).to(device)
-    model.load_state_dict(torch.load(checkpoint_path, map_location=device))
+    ckpt = torch.load(checkpoint_path, map_location=device)
+    if "model_state_dict" in ckpt:
+        state_dict = ckpt["model_state_dict"]
+    else:
+        state_dict = ckpt
+    model.load_state_dict(state_dict)
     model.eval()
     return model
