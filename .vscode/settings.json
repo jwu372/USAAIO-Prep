@@ -17,5 +17,8 @@
         "activityBar.background": "#4C1455",
         "titleBar.activeBackground": "#6A1D77",
         "titleBar.activeForeground": "#FEFCFE"
+    },
+    "files.exclude": {
+        "**/.gitignore": true,
     }
 }
